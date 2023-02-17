@@ -6,15 +6,28 @@ print("Welcome to Python Ramdom number")
 print("*******************************")
 
 secret_number = 42
-tries = 5
+tries_total = 5
+turns = 1
 
-guess = input("Enter a number: ")
+for turns in range ( 1, tries_total+1):
 
-print ("You entered", guess )
+    print ("Try {} of {}".format(turns,tries_total))
+    guess = input("Enter a number: ")
+    print ("You entered", guess )
+    guess = int(guess) ##convert string to int
 
-guess = int(guess) ##convert string to int
+    correct = guess == secret_number
+    greater = guess > secret_number
+    less    = guess < secret_number
 
-if (guess == secret_number):
-    print ("Right number!")
-else:
-    print ("Wrong number")
+    if (correct):
+        print ("Right number!")
+        print ("End of tries") 
+        print ("1 correct")   
+    else:
+        if(greater):
+            print ("Wrong! Your guess was greater than the secret number.")
+        elif(less):
+            print ("Wrong! Your guess was less than the secret number." )
+    
+print ("End game")
