@@ -1,11 +1,13 @@
 from mimetypes import guess_all_extensions, guess_extension
 
+import random
 
 print("*******************************")
 print("Welcome to Python Ramdom number")
 print("*******************************")
 
-secret_number = 42
+rand_number = random.random() * 100 
+secret_number = int(rand_number)
 tries_total = 5
 turns = 1
 
@@ -32,5 +34,6 @@ for turns in range ( 1, tries_total+1):
             print ("Wrong! Your guess was greater than the secret number.")
         elif(less):
             print ("Wrong! Your guess was less than the secret number." )
-    
+
+print ("The secret number was: {}".format(secret_number))    
 print ("End game")
