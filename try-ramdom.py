@@ -20,10 +20,13 @@ for turns in range ( 1, tries_total+1):
     greater = guess > secret_number
     less    = guess < secret_number
 
+    if guess <= 0:
+       print ("Must be greater than 0") 
+       continue
+     
     if (correct):
         print ("Right number!")
-        print ("End of tries") 
-        print ("1 correct")   
+        break
     else:
         if(greater):
             print ("Wrong! Your guess was greater than the secret number.")
