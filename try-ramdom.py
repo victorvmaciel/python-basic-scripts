@@ -1,16 +1,34 @@
-from mimetypes import guess_all_extensions, guess_extension
-
 import random
 
 print("*******************************")
 print("Welcome to Python Ramdom number")
 print("*******************************")
 
-rand_number = random.random() * 100 
+rand_number = random.randrange(1,101)
 secret_number = int(rand_number)
 tries_total = 5
 turns = 1
+scores = 1000
 
+print ("Random numer: {}".format(rand_number))
+print ("LEVEL ")
+print (" (1) Easy: 20 tries")
+print (" (2) Medium: 10 tries")
+print (" (3) hard: 5 tries")
+
+difficulty = int(input ("Choose your level: "))
+
+if (difficulty == 1):
+    print ("You choose easy level")
+    tries_total = 20
+elif (difficulty == 2):
+      print ("You choose medium level")
+      tries_total = 10
+else:
+    print ("You choose the hard level! Good luck")
+    tries_total = 5
+
+    
 for turns in range ( 1, tries_total+1):
 
     print ("Try {} of {}".format(turns,tries_total))
@@ -28,6 +46,7 @@ for turns in range ( 1, tries_total+1):
      
     if (correct):
         print ("Right number!")
+        print ("Total of scores: {}".format(scores))
         break
     else:
         if(greater):
@@ -35,5 +54,7 @@ for turns in range ( 1, tries_total+1):
         elif(less):
             print ("Wrong! Your guess was less than the secret number." )
 
+        lost_scores = abs(secret_number - guess)
+        scores = (scores - lost_scores) - 3
 print ("The secret number was: {}".format(secret_number))    
 print ("End game")
