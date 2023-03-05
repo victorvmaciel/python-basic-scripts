@@ -60,3 +60,6 @@ def play_game():
             
     print ("The secret number was: {}".format(secret_number))    
     print ("End game")
+
+if (__name__ == "__main__"):
+    play_game()
